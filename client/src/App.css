@@ -1,38 +1,88 @@
 .App {
   text-align: center;
+  margin: 0 1.6rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header */
+
+header {
+  color: white;
+  margin-top: 2rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+header h1 {
+  margin: 3rem auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header p {
+  font-size: 1.1rem;
+  margin: 0.5rem auto;
+  line-height: 1.5rem;
+}
+
+/* Search bar style */
+.searchContainer {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 2rem;
+}
+/* Search icon styles */
+.searchContainer :nth-child(1) {
+  z-index: 100;
+  cursor: pointer;
+  position: relative;
+  left: 1rem;
+  color: #bdbdbe;
+}
+/* Search input styles */
+.searchInput {
+  display: block;
+  border: 2px solid #bdbdbe;
+  border-radius: 5px;
+  padding: 0.5rem 0.5rem;
+  transition: all 0.5s ease;
+  width: 300px;
+  min-width: 230px;
+  text-indent: 1.5rem;
+  border-color: #bdbdbe;
+  font-family: "Open Sans";
+  position: relative;
+  right: 0.9rem;
+}
+.searchInput:focus {
+  outline: none;
+}
+.searchInput::placeholder {
+  font-family: "Open Sans";
 }
 
-.App-link {
-  color: #61dafb;
+/* City style*/
+.selectedCities {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cityContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 1rem 1rem 1.5rem;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: 1rem;
+  text-align: left;
+  margin: 1rem 0.5rem;
+}
+.info > * {
+  margin: 10px 0;
+  font-weight: bold;
+}
+.info > *:nth-child(3) {
+  font-weight: normal;
+}
+.info h3 {
+  color: #7836b1;
+  font-weight: bold;
 }

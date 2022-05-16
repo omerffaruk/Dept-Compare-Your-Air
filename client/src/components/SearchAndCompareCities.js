@@ -6,6 +6,8 @@ export default function SearchAndCompareCities({
   cities,
   setSuggestionCities,
   suggestionCities,
+  selectedCities,
+  setSelectedCities,
 }) {
   const [searchKey, setSearchKey] = useState("");
   const onChangeHandler = (text) => {
@@ -30,12 +32,45 @@ export default function SearchAndCompareCities({
   const onClickHandler = () => {
     document.getElementById("suggestedCities").style.display = "block";
   };
+  const onClickCityHandler = (city) => {
+    const url = `https://docs.openaq.org/v2/latest?limit=1&page=1&offset=0&sort=asc&radius=1000&country=GB&city=${city}&order_by=location&dumpRaw=false`;
+    const fetchCity = async () => {
+      const response = await fetch(url);
+      const data = await response.json();
+      const cityData = data.results[0];
+      const cityExists = selectedCities.find(
+        (selectedCity) => selectedCity.city === cityData.city
+      );
+      if (!cityExists) {
+        setSelectedCities([...selectedCities, cityData]);
+      }
+    };
+    try {
+      fetchCity();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const allCities = cities.map((city, i) => (
-    <li key={`${i} - ${city}`}>{city.city}</li>
+    <li onClick={() => onClickCityHandler(city.city)} key={`${i} - ${city}`}>
+      {city.city}
+    </li>
   ));
   const suggestedCities = suggestionCities.map((city, i) => (
-    <li key={`${i} - ${city}`}>{city.city}</li>
+    <li onClick={() => onClickCityHandler(city.city)} key={`${i} - ${city}`}>
+      {city.city}
+    </li>
   ));
+  const allSelectedCities = selectedCities.map((selectedCity, i) => {
+    return (
+      <SelectedCity
+        key={`Selected city - ${i} - ${selectedCity.city}`}
+        selectedCity={selectedCity}
+        selectedCities={selectedCities}
+        setSelectedCities={setSelectedCities}
+      />
+    );
+  });
   return (
     <div className="searchAndCompareCitiesContainer">
       <div className="searchContainer">
@@ -59,9 +94,7 @@ export default function SearchAndCompareCities({
           <li>No city found</li>
         )}
       </ul>
-      <section className="selectedCities">
-        <SelectedCity />
-      </section>
+      <section className="selectedCities">{allSelectedCities}</section>
     </div>
   );
 }

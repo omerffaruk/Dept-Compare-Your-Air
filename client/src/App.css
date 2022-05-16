@@ -113,6 +113,7 @@ header p {
   margin-top: 1rem;
   text-align: left;
   margin: 1rem 0.5rem;
+  width: 300px;
 }
 .info > * {
   margin: 10px 0;
@@ -124,4 +125,7 @@ header p {
 .info h3 {
   color: #7836b1;
   font-weight: bold;
+}
+.removeCityButton {
+  cursor: pointer;
 }

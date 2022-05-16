@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   margin: 0 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Header */
@@ -20,6 +23,12 @@ header p {
   line-height: 1.5rem;
 }
 
+.searchAndCompareCitiesContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* Search bar style */
 .searchContainer {
   position: relative;
@@ -27,6 +36,7 @@ header p {
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
+  z-index: 100;
 }
 /* Search icon styles */
 .searchContainer :nth-child(1) {
@@ -56,6 +66,35 @@ header p {
 }
 .searchInput::placeholder {
   font-family: "Open Sans";
+}
+
+/* Suggested cities list style */
+.suggestedCities {
+  display: none;
+  background-color: white;
+  border-radius: 5px;
+  width: 300px;
+  margin-left: 35px;
+  border-top: none;
+  max-height: 200px;
+  overflow: auto;
+  list-style-type: none;
+  text-align: left;
+  border: 2px solid #bdbdbe;
+  right: 19.5px;
+  position: relative;
+  margin-top: -4px;
+}
+
+.suggestedCities > * {
+  padding: 0.45rem 0.8rem;
+  font-size: 1.1rem;
+  font-family: "Open Sans";
+  cursor: pointer;
+}
+
+.suggestedCities > *:hover {
+  background-color: #f2f2f2;
 }
 
 /* City style*/

@@ -4,6 +4,7 @@ import SearchAndCompareCities from "./components/SearchAndCompareCities";
 
 function App() {
   const [cities, setCities] = useState([]);
+  const [suggestionCities, setSuggestionCities] = useState([]);
   useEffect(() => {
     const urlToFetchUKCities = `https://docs.openaq.org/v2/cities?limit=300&page=1&offset=0&sort=asc&country=GB&order_by=city`;
     const fetchCities = async () => {
@@ -25,7 +26,11 @@ function App() {
         <p>Select cities to compare using the search tool below.</p>
       </header>
       <main>
-        <SearchAndCompareCities />
+        <SearchAndCompareCities
+          setSuggestionCities={setSuggestionCities}
+          cities={cities}
+          suggestionCities={suggestionCities}
+        />
       </main>
     </div>
   );

@@ -47,6 +47,7 @@ export default function SearchAndCompareCities({
     };
     try {
       fetchCity();
+      setSearchKey("");
     } catch (error) {
       console.log(error);
     }

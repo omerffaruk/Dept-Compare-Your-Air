@@ -24,7 +24,7 @@ export default function SelectedCity({
         {" "}
         <p>UPDATED AN HOUR AGO</p>
         <h3>{selectedCity.city}</h3>
-        <p>{selectedCity.city}, United Kingdom</p>
+        <p>in {selectedCity.city}, United Kingdom</p>
         <p>{valuesString}</p>
       </div>
       <div className="removeCityButton">

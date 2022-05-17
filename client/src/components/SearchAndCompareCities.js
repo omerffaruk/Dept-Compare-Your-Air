@@ -32,6 +32,7 @@ export default function SearchAndCompareCities({
   const onClickHandler = () => {
     document.getElementById("suggestedCities").style.display = "block";
   };
+
   const onClickCityHandler = (city) => {
     const url = `https://docs.openaq.org/v2/latest?limit=1&page=1&offset=0&sort=asc&radius=1000&country=GB&city=${city}&order_by=location&dumpRaw=false`;
     const fetchCity = async () => {
@@ -42,7 +43,7 @@ export default function SearchAndCompareCities({
         (selectedCity) => selectedCity.city === cityData.city
       );
       if (!cityExists) {
-        setSelectedCities([...selectedCities, cityData]);
+        setSelectedCities([cityData, ...selectedCities]);
       }
     };
     try {

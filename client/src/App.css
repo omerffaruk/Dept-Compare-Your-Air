@@ -23,6 +23,10 @@ header p {
   line-height: 1.5rem;
 }
 
+main {
+  margin-bottom: 1rem;
+}
+
 .searchAndCompareCitiesContainer {
   display: flex;
   flex-direction: column;
@@ -128,4 +132,38 @@ header p {
 }
 .removeCityButton {
   cursor: pointer;
+}
+.valuesSpan {
+  display: inline-block;
+  margin: 1.5px;
+}
+.displayColor {
+  padding: 0.1rem 0.2rem;
+  border: 1px solid;
+  border-radius: 5px;
+}
+.displayColor.green {
+  background-color: #9ae469;
+}
+.displayColor.yellow {
+  background-color: #fada4e;
+}
+.displayColor.orange {
+  background-color: #e38100;
+}
+.btn {
+  background-color: white;
+  color: #7836b1;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Open Sans";
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  font-weight: bold;
+  transition: all 0.4s ease;
+}
+.btn:hover {
+  background-color: #eee;
 }

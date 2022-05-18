@@ -10,6 +10,7 @@ export default function SearchAndCompareCities({
   setSelectedCities,
 }) {
   const [searchKey, setSearchKey] = useState("");
+  const [displayValuesColor, setDisplayValuesColor] = useState(false);
   const onChangeHandler = (text) => {
     setSearchKey(text);
     if (text.length > 0) {
@@ -53,6 +54,9 @@ export default function SearchAndCompareCities({
       console.log(error);
     }
   };
+  const toggleDisplayValuesColor = () => {
+    setDisplayValuesColor(!displayValuesColor);
+  };
   const allCities = cities.map((city, i) => (
     <li onClick={() => onClickCityHandler(city.city)} key={`${i} - ${city}`}>
       {city.city}
@@ -70,6 +74,8 @@ export default function SearchAndCompareCities({
         selectedCity={selectedCity}
         selectedCities={selectedCities}
         setSelectedCities={setSelectedCities}
+        displayValuesColor={displayValuesColor}
+        setDisplayValuesColor={setDisplayValuesColor}
       />
     );
   });
@@ -97,6 +103,11 @@ export default function SearchAndCompareCities({
         )}
       </ul>
       <section className="selectedCities">{allSelectedCities}</section>
+      {selectedCities.length > 0 && (
+        <button className="btn" onClick={toggleDisplayValuesColor}>
+          {displayValuesColor ? "Hide" : "Show"} Color
+        </button>
+      )}
     </div>
   );
 }

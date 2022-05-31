@@ -7,7 +7,7 @@ function App() {
   const [suggestionCities, setSuggestionCities] = useState([]);
   const [selectedCities, setSelectedCities] = useState([]);
   useEffect(() => {
-    const urlToFetchUKCities = `https://docs.openaq.org/v2/cities?limit=300&page=1&offset=0&sort=asc&country=GB&order_by=city`;
+    const urlToFetchUKCities = `https://api.openaq.org/v2/cities?limit=300&page=1&offset=0&sort=asc&country=GB&order_by=city`;
     const fetchCities = async () => {
       const response = await fetch(urlToFetchUKCities);
       const data = await response.json();

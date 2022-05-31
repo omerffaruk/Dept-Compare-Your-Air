@@ -35,7 +35,7 @@ export default function SearchAndCompareCities({
   };
 
   const onClickCityHandler = (city) => {
-    const url = `https://docs.openaq.org/v2/latest?limit=1&page=1&offset=0&sort=asc&radius=1000&country=GB&city=${city}&order_by=location&dumpRaw=false`;
+    const url = `https://api.openaq.org/v2/latest?limit=1&page=1&offset=0&sort=asc&radius=1000&country=GB&city=${city}&order_by=location&dumpRaw=false`;
     const fetchCity = async () => {
       const response = await fetch(url);
       const data = await response.json();
